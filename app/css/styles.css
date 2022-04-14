@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  line-height: 1.5;
+}
+
+i {
+  pointer-events: none;
+}
+
+button,
+input:not([type="text"]),
+label {
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: min(90%, 500px);
+  height: 90%;
+  gap: 2rem;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form:not(.save-submit) {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.output-field-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.copy-btn,
+.refresh-btn,
+.library-btn,
+.about-btn {
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 1.5rem;
+  color: #156acd;
+}
+
+.generated-pass {
+  width: 100%;
+  border: 2px solid #156acd;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  outline: none;
+  font-size: 1.25rem;
+}
+
+#save-init-btn,
+#save-submit-btn {
+  background: #156acd;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+#save-init-btn:hover,
+#save-submit-btn:hover {
+  opacity: 0.75;
+}
+.digits-input {
+  width: 100%;
+}
+
+/*-------modal-------*/
+
+.overlay {
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#save-tab,
+#about-tab,
+#library-tab {
+  background: #fff;
+  width: min(90%, 400px);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: none;
+}
+
+.save-submit {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.save-submit input {
+  width: 100%;
+  font: inherit;
+  border: 2px solid #156acd;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  outline: none;
+  font-size: 1.25rem;
+}
+
+#library-tab {
+  position: relative;
+  max-height: 21rem;
+  overflow-y: auto;
+}
+
+.deletion-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.confirm-deletion {
+  max-width: 450px;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: 0rem 0rem 0.5rem rgba(43, 43, 43, 0.5);
+}
+
+.confirm-deletion span {
+  overflow-x: hidden;
+}
+
+.delete-options {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.yes,
+.no {
+  flex: 1;
+  background: #156acd;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.yes:hover,
+.no:hover {
+  opacity: 0.75;
+}
+
+.yes {
+  background: rgb(255, 79, 79);
+}
+
+.saved-passwords-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.saved-password {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border: 2px solid #000;
+  border-radius: 1rem;
+  gap: 0.5rem;
+}
+
+.saved-info {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+
+.saved-info .saved-pass-pass {
+  position: relative;
+  color: #156acd;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.saved-pass-pass::after,
+.saved-pass-name::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to left, #ffffffbf 2%, #ffffff00 10%);
+}
+.saved-info .saved-pass-name {
+  position: relative;
+  font-weight: 700;
+}
+
+.btns {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.copy-saved-pass-btn,
+.del-saved-pass-btn {
+  background: #fff;
+  color: #156acd;
+  border: none;
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.del-saved-pass-btn {
+  color: rgb(255, 79, 79);
+}
+
+.copy-saved-pass-btn:hover,
+.del-saved-pass-btn:hover {
+  opacity: 0.75;
+}
+/*-----footer--------*/
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 1rem;
+}
+
+.more {
+  display: flex;
+  gap: 1rem;
+}
+
+/*--------animations-------*/
+
+@keyframes copyAnim {
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes refreshAnim {
+  100% {
+    transform: rotate(0.5turn);
+  }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PassGen1.1</title>
+    <link rel="icon" href="./lock-icon.png" />
+    <link rel="stylesheet" href="./app/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="tab" id="save-tab">
+        <h2>Give it a name</h2>
+        <form class="save-submit">
+          <input type="text" class="pass-name-input" required />
+          <button type="submit" id="save-submit-btn">Save</button>
+        </form>
+      </div>
+
+      <div class="tab" id="library-tab">
+        <h2>Your passwords:</h2>
+        <div class="saved-passwords-container"></div>
+      </div>
+
+      <div class="deletion-overlay">
+        <div class="confirm-deletion">
+          <h2>Are you sure you want to delete this password?</h2>
+          <span></span>
+          <div class="delete-options">
+            <button class="yes">Yes</button>
+            <button class="no">No</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab" id="about-tab">
+        <h2>What is PassGen?</h2>
+        <p>
+          PassGen is an app that will help you generate the most secure
+          passwords suited for your needs in various desired combinations. You
+          can also save your passwords by clicking on the save button. They will
+          be stored on your own computer. Enjoy :)
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="digits-input-container">
+        <input type="range" class="digits-input" min="4" max="256" value="12" />
+        <span>12 digits</span>
+      </div>
+
+      <div class="forms">
+        <form class="form-filters">
+          <label for="enable-special" title="@\#(%...">
+            <input type="checkbox" id="enable-special" checked />
+            Special Characters</label
+          >
+
+          <label for="enable-numbers" title="01234...">
+            <input type="checkbox" id="enable-numbers" checked />
+            Numbers</label
+          >
+        </form>
+        <hr />
+        <form class="form-letter-types">
+          <label for="all-up" title="ABCDE...">
+            <input type="radio" id="all-up" value="all-up" name="letter-type" />
+            All uppercase</label
+          >
+
+          <label for="all-low" title="abcde...">
+            <input
+              type="radio"
+              id="all-low"
+              value="all-low"
+              name="letter-type"
+            />
+            All lowercase</label
+          >
+
+          <label for="mixed" title="aBcDE...">
+            <input
+              type="radio"
+              id="mixed"
+              value="mixed"
+              name="letter-type"
+              checked
+            />
+            Mixed
+          </label>
+        </form>
+      </div>
+
+      <div class="output-field-container">
+        <button class="copy-btn" title="Copy to clipboard">
+          <i class="fas fa-clipboard"></i>
+        </button>
+        <input class="generated-pass" type="text" />
+        <button class="refresh-btn" title="Refresh">
+          <i class="fas fa-refresh"></i>
+        </button>
+      </div>
+
+      <div class="footer">
+        <button id="save-init-btn">Save</button>
+
+        <div class="more">
+          <button class="library-btn" title="Saved passwords">
+            <i class="fas fa-folder"></i>
+          </button>
+          <button class="about-btn" title="About the project">
+            <i class="fas fa-book"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"
+      integrity="sha512-6zTDRWNxo8vI6JZYDCwhrJpg5icK3P4HNnW3czsO5Scb3lAoPDam+/wF3eog4hxcl0h44d0XlIcFkuoSaWHQ2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./app/js/script.js"></script>
+  </body>
+</html>
